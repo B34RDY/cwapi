@@ -14,9 +14,9 @@
   "author": "David Maris",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/B34RDY/cw/issues"
+    "url": "https://github.com/B34RDY/cwapi/issues"
   },
-  "homepage": "https://github.com/B34RDY/cw",
+  "homepage": "https://github.com/B34RDY/cwapi",
   "dependencies": {
     "debug": "^2.1.2",
     "mysql": "^2.5.5",
