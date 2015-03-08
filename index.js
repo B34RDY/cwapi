@@ -57,8 +57,6 @@ function getWord(req, res, next){
         }
         else{
             console.log(rows);
-            // Website you wish to allow to connect
-            res.setHeader('Access-Control-Allow-Origin', '*');
             res.send(rows[0].word);
         }
     });
