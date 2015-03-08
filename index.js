@@ -9,14 +9,14 @@ server.get('/getWord/:length', getWord);
 
 server.use(restify.fullResponse()).use(restify.bodyParser());
 
-server.listen(5000, function() {
+server.listen(process.env.PORT || 8080, function() {
     console.log('%s listening at %s', server.name, server.url);
 });
 
 function myTest(req, res, next){
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.send(process.env.DB_DATABASE);
+    res.send(connection.database + ' or blank.');
     next();
 }
 
