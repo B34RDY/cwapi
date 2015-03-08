@@ -1,0 +1,25 @@
+{
+  "name": "codewonk",
+  "version": "0.0.0",
+  "description": "codewonk api",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/B34RDY/cw"
+  },
+  "author": "David Maris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/B34RDY/cw/issues"
+  },
+  "homepage": "https://github.com/B34RDY/cw",
+  "dependencies": {
+    "debug": "^2.1.2",
+    "mysql": "^2.5.5",
+    "restify": "^2.8.5"
+  }
+}
