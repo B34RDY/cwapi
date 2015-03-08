@@ -3,14 +3,22 @@ var connection = require('./connection');
 
 var server = restify.createServer({name: 'codewonk'});
 
+server.get('/test', myTest);
 server.get('/valid/:word/:count', isWordValid);
 server.get('/getWord/:length', getWord);
 
 server.use(restify.fullResponse()).use(restify.bodyParser());
 
-server.listen(8080, function() {
+server.listen(5000, function() {
     console.log('%s listening at %s', server.name, server.url);
 });
+
+function myTest(req, res, next){
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.send(process.env.DB_DATABASE);
+    next();
+}
 
 function isWordValid(req, res, next){
     // Website you wish to allow to connect
