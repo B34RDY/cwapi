@@ -20,8 +20,9 @@ function isWordValid(req, res, next){
     var strSQL = "SELECT `word` FROM `words` WHERE ?? = ? AND ?? = ?";
     var inserts = ['word', strWord, 'count', strCount];
     var query = connection.query(strSQL, inserts, function(err, rows, fields){
-        //console.log(query.sql);
         if(err) {
+            console.log(err.message);
+            console.log(query.sql);
         }
         else{
             if(rows.length>0) {
@@ -48,7 +49,7 @@ function getWord(req, res, next){
             res.send("There was a problem checking the database for some reason." + err);
         }
         else{
-            console.log(rows);
+            console.log("word: '" + rows[0].word + "'");
             res.send(rows[0].word);
         }
     });
