@@ -3,7 +3,6 @@ var connection = require('./connection');
 
 var server = restify.createServer({name: 'codewonk'});
 
-server.get('/test', myTest);
 server.get('/valid/:word/:count', isWordValid);
 server.get('/getWord/:length', getWord);
 
@@ -12,13 +11,6 @@ server.use(restify.fullResponse()).use(restify.bodyParser());
 server.listen(process.env.PORT || 8080, function() {
     console.log('%s listening at %s', server.name, server.url);
 });
-
-function myTest(req, res, next){
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.send(connection.database + ' or blank.');
-    next();
-}
 
 function isWordValid(req, res, next){
     // Website you wish to allow to connect
@@ -53,7 +45,7 @@ function getWord(req, res, next){
     var query = connection.query(strSQL, {'count':nLength}, function(err, rows, fields){
         if(err){
             // If it failed, return error
-            res.send("There was a problem checking the database for some reason.\r\n" + err);
+            res.send("There was a problem checking the database for some reason." + err);
         }
         else{
             console.log(rows);
@@ -62,12 +54,3 @@ function getWord(req, res, next){
     });
     next();
 }
-
-//var debug = require('debug')('codewonk');
-//var app = require('./app');
-//
-//app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 8080);
-//
-//var server = app.listen(app.get('port'), function() {
-//    debug('Express server listening on port ' + server.address().port);
-//});
