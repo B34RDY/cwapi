@@ -20,7 +20,8 @@
   "dependencies": {
     "debug": "^2.1.2",
     "mysql": "^2.5.5",
-    "restify": "^2.8.5"
+    "restify": "^2.8.5",
+    "newrelic": "^1.18.0"
   },
   "engines": {
       "node": "0.12.x"
